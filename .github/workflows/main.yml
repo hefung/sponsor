@@ -1,10 +1,13 @@
 name: Refresh Sponsors
 
 on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
   schedule:
     # 每天 03:17 北京时间 = 19:17 UTC（前一天）
     - cron: "17 19 * * *"
-   workflow_dispatch:
 
 permissions:
   contents: write
