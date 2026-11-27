@@ -1,25 +1,23 @@
-# sponsor.json 自动生成
+# Sponsors Random  自动生成
 
 每天生成 25 条随机赞助数据（纯 JSON 数组，日期在最近三个月内），自动提交回仓库。
 
 ## 文件
 
 ```
-.github/workflows/sponsor.yml   → GitHub Actions（推荐）
-.cnb.yml                        → CNB 流水线（可选）
-.cnb/web_trigger.yml            → CNB 页面按钮（可选）
-sponsor.json                    → 生成的数据
+.github/workflows/sponsors-random.yml   → GitHub Actions（推荐）
+sponsors-random.json                    → 生成的数据
 ```
 
 ## GitHub 部署 3 步
 
-1. `.github/workflows/sponsor.yml` 放到仓库对应目录。
+1. `.github/workflows/sponsors-random.yml` 放到仓库对应目录。
 2. 提交推送。
 3. 仓库 **Settings → Actions → General → Workflow permissions** 选择 **Read and write permissions**。
 
 ## 触发
 
-- 手动测试：仓库 **Actions → Refresh Sponsors → Run workflow**，选分支后执行。
+- 手动测试：仓库 **Actions → Refresh sponsors-randoms → Run workflow**，选分支后执行。
 - 自动：每天 **03:17 北京时间**（UTC 19:17）跑一次。
 
 ## 站点读取
@@ -27,7 +25,7 @@ sponsor.json                    → 生成的数据
 GitHub raw 地址：
 
 ```
-https://raw.githubusercontent.com/<owner>/<repo>/<branch>/sponsor.json
+https://raw.githubusercontent.com/<owner>/<repo>/<branch>/sponsors-random.json
 ```
 
 GitHub 返回 `Access-Control-Allow-Origin: *`，浏览器可以直接跨域 `fetch`，不需要代理。
@@ -37,9 +35,9 @@ GitHub 返回 `Access-Control-Allow-Origin: *`，浏览器可以直接跨域 `fe
 在 workflow 的 `env` 里：
 
 ```yaml
-SPONSOR_COUNT: "25"         # 条数
-SPONSOR_DAYS: "90"          # 日期回溯天数
-SPONSOR_FILE: sponsor.json  # 输出路径
+sponsors-random_COUNT: "25"         # 条数
+sponsors-random_DAYS: "90"          # 日期回溯天数
+sponsors-random_FILE: sponsors-random.json  # 输出路径
 ```
 
 ## 数据规则
